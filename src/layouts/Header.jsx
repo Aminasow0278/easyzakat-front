@@ -105,10 +105,6 @@ function Header() {
 
         </nav>
 
-<<<<<<< HEAD
-      
-=======
->>>>>>> e2bd7363ff3841ed45d96b7d12c4ffed69e7c529
       </div>
     </header>
   );
