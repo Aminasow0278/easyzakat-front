@@ -1,6 +1,6 @@
 import { useState } from "react";
+import {Link} from "react-router-dom"
 
-import ZakatHeader from "../../components/zakat/ZakatHeader";
 import ZakatAssets from "../../components/zakat/ZakatAssets";
 import ZakatDebts from "../../components/zakat/ZakatDebts";
 import ZakatNote from "../../components/zakat/ZakatNote";
@@ -70,7 +70,7 @@ function CalculZakat() {
 
   return (
     <div className="min-h-screen bg-[#f8f8fc] text-[#143f35]">
-      <ZakatHeader />
+      <Header />
 
       <main className="mx-auto max-w-7xl px-4 pb-28 pt-7 sm:px-6 sm:pt-9 lg:px-10 lg:pb-0 lg:pt-12">
         <section className="mb-7 sm:mb-9">
@@ -145,6 +145,7 @@ function CalculZakat() {
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#e1e1e1] bg-white lg:hidden">
         <div className="mx-auto grid h-[61px] max-w-lg grid-cols-5">
           <BottomNav />
+          <Footer />
         </div>
       </nav>
     </div>
