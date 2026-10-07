@@ -1,4 +1,5 @@
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 import Home from "../../pages/public/Home";
 import CalculZakat from "../../pages/public/CalculZakat";
 import Impact from "../../pages/public/Impact";
@@ -7,9 +8,14 @@ import Cause from "../../pages/public/Cause";
 import Landing from "../../pages/public/Landing";
 import CampaignDetails from "../../pages/public/CampaignDetails";
 
+import Register from "../../pages/auth/Register";
+import Login from "../../pages/auth/Login";
+
+
+
 function UserRoutes() {
   return (
-      <Routes>
+    <Routes>
 
         {/* Page d'accueil */}
         <Route index element={<Landing />} />
@@ -30,10 +36,27 @@ function UserRoutes() {
 
           
 
-        {/* Page Impact */}
-          <Route path="/impact" element={<Impact />} />
+      {/* Inscription */}
+      <Route
+        path="/register"
+        element={<Register />}
+      />
 
-      </Routes>
+      {/* Connexion */}
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+
+    
+
+      {/* Impact */}
+      <Route
+        path="/impact"
+        element={<Impact />}
+      />
+
+    </Routes>
   );
 }
 
