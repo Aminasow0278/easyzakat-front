@@ -1,8 +1,4 @@
-import { Calculator, Heart } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
 function Hero() {
-  const navigate = useNavigate();
 
   return (
     <section className="rounded-3xl bg-[#075c43] px-6 py-6 text-white sm:px-10 lg:px-16 lg:py-16">

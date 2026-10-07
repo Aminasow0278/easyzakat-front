@@ -1,12 +1,12 @@
 import { useState } from "react";
-
-import ZakatHeader from "../../components/zakat/ZakatHeader";
+ import { Link } from "react-router-dom";
+import Header from "../../layouts/Header";
 import ZakatAssets from "../../components/zakat/ZakatAssets";
 import ZakatDebts from "../../components/zakat/ZakatDebts";
 import ZakatNote from "../../components/zakat/ZakatNote";
 import Recapitulatif from "../../components/zakat/Recapitulatif";
-
-import BottomNav from "../../layouts/PublicLayout/BottomNav";
+import Footer from "../../layouts/Footer";
+import BottomNav from "../../layouts/BottomNav";
 
 function CalculZakat() {
   const [form, setForm] = useState({
@@ -70,7 +70,7 @@ function CalculZakat() {
 
   return (
     <div className="min-h-screen bg-[#f8f8fc] text-[#143f35]">
-      <ZakatHeader />
+      <Header />
 
       <main className="mx-auto max-w-7xl px-4 pb-28 pt-7 sm:px-6 sm:pt-9 lg:px-10 lg:pb-0 lg:pt-12">
         <section className="mb-7 sm:mb-9">
@@ -130,13 +130,14 @@ function CalculZakat() {
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={handleDonate}
+
+          <Link
+            to="/type"
             className="rounded-[5px] bg-[#e8c944] px-6 py-3 text-[11px] font-semibold text-[#4c461d] shadow-sm transition hover:bg-[#dabb31] sm:px-8 sm:py-3.5"
           >
             Donner
-          </button>
+          </Link>
+
         </div>
       </div>
 
@@ -146,6 +147,8 @@ function CalculZakat() {
           <BottomNav />
         </div>
       </nav>
+      
+      <Footer />
     </div>
   );
 }

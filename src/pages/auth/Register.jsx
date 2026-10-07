@@ -6,7 +6,7 @@ function Register() {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-green-700">
+          <h1 className="text-3xl font-bold text-[#003f35]">
             Créer un compte
           </h1>
 
@@ -55,7 +55,7 @@ function Register() {
 
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition"
+            className="w-full bg-[#005b49] hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition"
           >
             Créer mon compte
           </button>
@@ -65,7 +65,7 @@ function Register() {
           Vous avez déjà un compte ?{" "}
           <Link
             to="/login"
-            className="text-green-600 font-semibold hover:underline"
+            className="text-[#005b49] font-semibold hover:underline"
           >
             Se connecter
           </Link>
