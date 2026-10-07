@@ -160,12 +160,7 @@ function Register() {
 
           <button
             type="submit"
-<<<<<<< HEAD
             className="w-full bg-[#005b49] hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition"
-=======
-            disabled={loading}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition disabled:opacity-50"
->>>>>>> 18b5976ca6ea726a4c5da91f510043eb099596c1
           >
             {loading ? "Création..." : "Créer mon compte"}
           </button>
