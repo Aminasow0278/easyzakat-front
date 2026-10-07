@@ -3,25 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/public/Home";
 import CalculZakat from "../../pages/public/CalculZakat";
 import Impact from "../../pages/public/Impact";
-<<<<<<< HEAD
-=======
 import DonationType from "../../pages/public/DonationType";
 import Cause from "../../pages/public/Cause";
 import Landing from "../../pages/public/Landing";
 import CampaignDetails from "../../pages/public/CampaignDetails";
->>>>>>> a24290397dbf7d7ca8eaf40a18212a3a6fe5e80b
-
 import Register from "../../pages/auth/Register";
 import Login from "../../pages/auth/Login";
-
-
-<<<<<<< HEAD
-import DonationType from "../../pages/public/DonationType";
-import Cause from "../../pages/public/Cause";
-import Landing from "../../pages/public/Landing";
-import CampaignDetails from "../../pages/public/CampaignDetails";
-=======
->>>>>>> a24290397dbf7d7ca8eaf40a18212a3a6fe5e80b
 
 function UserRoutes() {
   return (
@@ -42,29 +29,14 @@ function UserRoutes() {
         {/* Page Type de Donation */}
         <Route path="/type" element={<DonationType /> } />
 
+        {/* Page Details */}
         <Route path="/details" element={<CampaignDetails /> } />
 
-          
-
-      {/* Inscription */}
-      <Route
-        path="/register"
-        element={<Register />}
-      />
-
-      {/* Connexion */}
-      <Route
-        path="/login"
-        element={<Login />}
-      />
+      {/* Impact */}
+        <Route path="/impact" element={<Impact /> } />
 
     
 
-      {/* Impact */}
-      <Route
-        path="/impact"
-        element={<Impact />}
-      />
 
     </Routes>
   );
