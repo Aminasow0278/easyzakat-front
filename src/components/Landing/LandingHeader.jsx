@@ -107,7 +107,7 @@ function LandingHeader() {
 
         {/* Donate */}
         <Link
-          to="/register"
+          to="/login"
           className="rounded-full bg-[#0F3D2E] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#0a2e23] sm:px-5 sm:text-sm"
         >
           Donate Now
