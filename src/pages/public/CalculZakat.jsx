@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom"
 import {
   Menu,
   WalletCards,
@@ -11,7 +12,7 @@ import {
   User,
 } from "lucide-react";
 
-import BottomNav from "../../layouts/PublicLayout/BottomNav";
+import BottomNav from "../../layouts/BottomNav";
 
   function CalculZakat() {
   const [form, setForm] = useState({
@@ -330,12 +331,12 @@ const calculateZakat = async () => {
           </div>
 
 
-          <button
-            type="button"
+          <Link
+            to="/type"
             className="rounded-[5px] bg-[#e8c944] px-6 py-3 text-[11px] font-semibold text-[#4c461d] shadow-sm transition hover:bg-[#dabb31] sm:px-8 sm:py-3.5"
           >
             Donner
-          </button>
+          </Link>
 
         </div>
 

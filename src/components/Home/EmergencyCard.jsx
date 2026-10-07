@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 
-function EmergencyCard({ project }) {
+function EmergencyCard({ campaign }) {
   return (
     <Link
-      to={`/projets/${project.id}`}
+      to={`/campaigns/${campaign.id}`}
       className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
     >
 
       <div className="flex min-h-[105px] sm:min-h-[135px]">
 
         <img
-          src={project.image}
-          alt={project.title}
+          src={campaign.image}
+          alt={campaign.title}
           className="w-[95px] object-cover sm:w-[150px]"
         />
 
@@ -20,11 +20,11 @@ function EmergencyCard({ project }) {
           <div>
 
             <h3 className="text-xs font-bold text-gray-900 sm:text-sm">
-              {project.title}
+              {campaign.title}
             </h3>
 
             <p className="mt-1 line-clamp-2 text-[10px] leading-4 text-gray-500 sm:text-xs">
-              {project.description}
+              {campaign.description}
             </p>
 
           </div>
@@ -34,11 +34,11 @@ function EmergencyCard({ project }) {
             <div className="mb-1 flex justify-between text-[9px] font-medium text-gray-600 sm:text-[10px]">
 
               <span>
-                {project.progress}% collecté
+                {campaign.progress}% collecté
               </span>
 
               <span>
-                {project.remaining}
+                {campaign.remaining}
               </span>
 
             </div>
@@ -48,7 +48,7 @@ function EmergencyCard({ project }) {
               <div
                 className="h-full rounded-full bg-[#005b49]"
                 style={{
-                  width: `${project.progress}%`
+                  width: `${campaign.progress}%`
                 }}
               />
 

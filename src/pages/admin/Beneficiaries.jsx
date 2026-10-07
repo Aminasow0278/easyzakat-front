@@ -13,7 +13,7 @@ import FormSelect from "../../components/admin/beneficiaries/FormSelect";
 import UrgencySelector from "../../components/admin/beneficiaries/UrgencySelector";
 import FileUpload from "../../components/admin/beneficiaries/FileUpload";
 import FormActions from "../../components/admin/beneficiaries/FormActions";
-import MobileBottomNav from "../../layouts/admin/MobileBottomNav";
+
 function Beneficiaries() {
 
   const [formData, setFormData] = useState({
