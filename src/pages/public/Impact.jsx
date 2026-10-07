@@ -1,18 +1,18 @@
-import ImpactHeader from "../../components/impact/ImpactHeader";
 import ImpactStats from "../../components/impact/ImpactStats";
 import MiniStats from "../../components/impact/MiniStats";
 import CategoryDistribution from "../../components/impact/CategoryDistribution";
 import RegionalImpact from "../../components/impact/RegionalImpact";
 import ImpactReports from "../../components/impact/ImpactReports";
 import CertificationBanner from "../../components/impact/CertificationBanner";
-import ImpactFooter from "../../components/impact/ImpactFooter";
-import BottomNav from "../../layouts/PublicLayout/BottomNav";
+import BottomNav from "../../layouts/BottomNav";
+import Footer from "../../layouts/Footer";
+import Header from "../../layouts/Header";
 
 export default function ImpactPage() {
   return (
     <div className="min-h-screen bg-[#F5F6F8] pb-20 md:pb-0">
 
-      <ImpactHeader />
+      <Header />
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
@@ -46,7 +46,7 @@ export default function ImpactPage() {
 
       </main>
 
-      <ImpactFooter />
+      <Footer />
 
       <BottomNav />
 

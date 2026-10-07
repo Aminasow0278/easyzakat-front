@@ -147,7 +147,7 @@ function Login() {
           <div className="text-right">
 
             <Link
-              to="/mot-de-passe-oublie"
+              to="/mdp"
               className="text-sm text-[#005b49] underline"
             >
               Mot de passe oublié ?

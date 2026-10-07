@@ -7,10 +7,10 @@ function AuthRoutes() {
     return (
         <Routes>
 
-        {/* Page d'accueil */}
+        {/* Page connexion*/}
         <Route path="/login" element={<Login />} />
 
-        {/* Page Calcul de Zakat */}
+        {/* Page inscription */}
         <Route path="/register" element={<Register />} />
 
         </Routes>
