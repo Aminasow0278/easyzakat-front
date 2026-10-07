@@ -4,7 +4,8 @@ import ZakatHeader from "../../components/zakat/ZakatHeader";
 import ZakatAssets from "../../components/zakat/ZakatAssets";
 import ZakatDebts from "../../components/zakat/ZakatDebts";
 import ZakatNote from "../../components/zakat/ZakatNote";
- 
+import Recapitulatif from "../../components/zakat/Recapitulatif";
+
 import BottomNav from "../../layouts/PublicLayout/BottomNav";
 
 function CalculZakat() {
@@ -21,6 +22,9 @@ function CalculZakat() {
     immediateObligations: "",
   });
 
+  const [totalActifs, setTotalActifs] = useState(0);
+  const [dettes, setDettes] = useState(0);
+  const [assiette, setAssiette] = useState(0);
   const [zakat, setZakat] = useState(0);
 
   const handleChange = (name, value) => {
@@ -41,13 +45,17 @@ function CalculZakat() {
       Number(form.receivables || 0) +
       Number(form.otherAssets || 0);
 
-    const debts =
+    const debtsAmount =
       Number(form.debts || 0) +
       Number(form.immediateObligations || 0);
 
-    const zakatableAmount = Math.max(0, assets - debts);
+    const zakatableAmount = Math.max(0, assets - debtsAmount);
 
     const nisab = 500000;
+
+    setTotalActifs(assets);
+    setDettes(debtsAmount);
+    setAssiette(zakatableAmount);
 
     if (zakatableAmount >= nisab) {
       setZakat(zakatableAmount * 0.025);
@@ -56,13 +64,15 @@ function CalculZakat() {
     }
   };
 
+  const handleDonate = () => {
+    console.log("Don de :", zakat);
+  };
+
   return (
     <div className="min-h-screen bg-[#f8f8fc] text-[#143f35]">
-
       <ZakatHeader />
 
-      <main className="mx-auto max-w-7xl px-4 pb-[150px] pt-7 sm:px-6 sm:pt-9 lg:px-10 lg:pb-[120px] lg:pt-12">
-
+      <main className="mx-auto max-w-7xl px-4 pb-28 pt-7 sm:px-6 sm:pt-9 lg:px-10 lg:pb-0 lg:pt-12">
         <section className="mb-7 sm:mb-9">
           <h1 className="text-[28px] font-bold leading-tight tracking-[-0.7px] sm:text-4xl lg:text-[42px]">
             Calculez votre Zakat
@@ -74,32 +84,39 @@ function CalculZakat() {
           </p>
         </section>
 
-        <div className="grid gap-5 lg:grid-cols-2 lg:items-start lg:gap-7">
-
-          <ZakatAssets
-            form={form}
-            handleChange={handleChange}
-          />
-
-          <div className="space-y-5">
-
-            <ZakatDebts
+        <div className="grid gap-5 lg:grid-cols-12 lg:items-start lg:gap-7">
+          <div className="lg:col-span-8">
+            <ZakatAssets
               form={form}
               handleChange={handleChange}
-              onCalculate={calculateZakat}
             />
 
-            <ZakatNote />
+            <div className="mt-5 space-y-5">
+              <ZakatDebts
+                form={form}
+                handleChange={handleChange}
+                onCalculate={calculateZakat}
+              />
 
+              <ZakatNote />
+            </div>
           </div>
 
+          <div className="lg:col-span-4">
+            <Recapitulatif
+              totalActifs={totalActifs}
+              dettes={dettes}
+              assiette={assiette}
+              zakat={zakat}
+              onDonate={handleDonate}
+            />
+          </div>
         </div>
       </main>
 
-      <div className="fixed bottom-[61px] left-0 right-0 z-40 bg-[#086c51] shadow-[0_-3px_12px_rgba(0,0,0,0.12)] md:bottom-0">
-
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-[9px] sm:px-6 sm:py-3 lg:px-10">
-
+      {/* Barre mobile */}
+      <div className="fixed bottom-[61px] left-0 right-0 z-40 bg-[#086c51] shadow-[0_-3px_12px_rgba(0,0,0,0.12)] lg:hidden">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-[9px] sm:px-6 sm:py-3">
           <div>
             <p className="text-[9px] leading-3 text-white/60 sm:text-[11px]">
               Ma Zakat
@@ -115,20 +132,20 @@ function CalculZakat() {
 
           <button
             type="button"
+            onClick={handleDonate}
             className="rounded-[5px] bg-[#e8c944] px-6 py-3 text-[11px] font-semibold text-[#4c461d] shadow-sm transition hover:bg-[#dabb31] sm:px-8 sm:py-3.5"
           >
             Donner
           </button>
-
         </div>
       </div>
 
+      {/* Navigation mobile */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#e1e1e1] bg-white lg:hidden">
         <div className="mx-auto grid h-[61px] max-w-lg grid-cols-5">
           <BottomNav />
         </div>
       </nav>
-
     </div>
   );
 }
