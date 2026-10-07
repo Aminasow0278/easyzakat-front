@@ -52,7 +52,7 @@ function Login() {
 
       // Aller directement vers l'administration
       setTimeout(() => {
-        navigate("/");
+        navigate("/Home");
       }, 500);
 
     } catch (err) {
