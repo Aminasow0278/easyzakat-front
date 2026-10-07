@@ -145,6 +145,7 @@ function CalculZakat() {
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#e1e1e1] bg-white lg:hidden">
         <div className="mx-auto grid h-[61px] max-w-lg grid-cols-5">
           <BottomNav />
+          <Footer />
         </div>
       </nav>
       
