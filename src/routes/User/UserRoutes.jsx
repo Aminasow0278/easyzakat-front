@@ -1,25 +1,48 @@
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 import Home from "../../pages/public/Home";
 import CalculZakat from "../../pages/public/CalculZakat";
-// import Donation from "../../pages/public/Donation";
 import Impact from "../../pages/public/Impact";
+
+import Register from "../../pages/auth/Register";
+import Login from "../../pages/auth/Login";
+
+
+
 function UserRoutes() {
   return (
-      <Routes>
+    <Routes>
 
-        {/* Page d'accueil */}
-        <Route path="/" element={<Home />} />
+      {/* Page d'accueil */}
+      <Route path="/" element={<Home />} />
 
-        {/* Page Calcul de Zakat */}
-        <Route path="/calculer-zakat" element={<CalculZakat />} />
-        
-        {/* Page Donation
-        <Route path="/don" element={<Donation /> } /> */}
+      {/* Calcul de Zakat */}
+      <Route
+        path="/calculer-zakat"
+        element={<CalculZakat />}
+      />
 
-        {/* Page Impact */}
-          <Route path="/impact" element={<Impact />} />
+      {/* Inscription */}
+      <Route
+        path="/register"
+        element={<Register />}
+      />
 
-      </Routes>
+      {/* Connexion */}
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+
+    
+
+      {/* Impact */}
+      <Route
+        path="/impact"
+        element={<Impact />}
+      />
+
+    </Routes>
   );
 }
 
