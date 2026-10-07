@@ -8,7 +8,7 @@ function UserRoutes() {
       <Routes>
 
         {/* Page d'accueil */}
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
         {/* Page Calcul de Zakat */}
         <Route path="/calculer-zakat" element={<CalculZakat />} />
