@@ -15,7 +15,7 @@ function BottomNav() {
     {
       name: "Acceuil",
       icon: Home,
-      path: "/"
+      path: "/home"
     },
     {
       name: "Calculer",

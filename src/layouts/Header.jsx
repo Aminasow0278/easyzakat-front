@@ -16,7 +16,7 @@ function Header() {
         </Link>
 
         {/* Navigation desktop */}
-        <nav className="hidden items-center gap-12 md:flex">
+        <nav className="hidden items-center gap-16 md:flex pr-20">
 
           <NavLink
             to="/Home"
@@ -105,6 +105,7 @@ function Header() {
 
         </nav>
 
+      
       </div>
     </header>
   );

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import {Link} from "react-router-dom"
-
+ import { Link } from "react-router-dom";
+import Header from "../../layouts/Header";
 import ZakatAssets from "../../components/zakat/ZakatAssets";
 import ZakatDebts from "../../components/zakat/ZakatDebts";
 import ZakatNote from "../../components/zakat/ZakatNote";
 import Recapitulatif from "../../components/zakat/Recapitulatif";
-
+import Footer from "../../layouts/Footer";
 import BottomNav from "../../layouts/BottomNav";
 
 function CalculZakat() {
@@ -148,6 +148,8 @@ function CalculZakat() {
           <Footer />
         </div>
       </nav>
+      
+      <Footer />
     </div>
   );
 }

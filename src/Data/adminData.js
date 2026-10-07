@@ -1,12 +1,41 @@
 export const menuItems = [
-  { name: "Dashboard", icon: "LayoutDashboard" },
-  { name: "Donors", icon: "Users" },
-  { name: "Payments", icon: "CreditCard" },
-  { name: "Campaigns", icon: "Megaphone" },
-  { name: "Orgs", icon: "Building2" },
-  { name: "Beneficiaries", icon: "HandHeart" },
-  { name: "Reports", icon: "BarChart3" },
-];
+  {
+    name: "Dashboard",
+    icon: "LayoutDashboard",
+    path: "/admin",
+  },
+  {
+    name: "Donors",
+    icon: "Users",
+    path: "/admin/donors",
+  },
+  {
+    name: "Payments",
+    icon: "CreditCard",
+    path: "/admin/payments",
+  },
+  {
+    name: "Campaigns",
+    icon: "Megaphone",
+    path: "/admin/campaigns",
+  },
+  {
+    name: "Orgs",
+    icon: "Building2",
+    path: "/admin/orgs",
+  },
+  {
+    name: "Beneficiaries",
+    icon: "HandHeart",
+    path: "/beneficiaries",
+  },
+  {
+    name: "Reports",
+    icon: "BarChart3",
+    path: "/admin/reports",
+  },
+]; 
+
 
 export const payments = [
   {
