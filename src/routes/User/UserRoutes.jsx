@@ -4,6 +4,7 @@ import Home from "../../pages/public/Home";
 import CalculZakat from "../../pages/public/CalculZakat";
 import Impact from "../../pages/public/Impact";
 import DonationType from "../../pages/public/DonationType";
+import DonationSpace from "../../pages/public/DonationSpace";
 import Cause from "../../pages/public/Cause";
 import Landing from "../../pages/public/Landing";
 import CampaignDetails from "../../pages/public/CampaignDetails";
@@ -41,6 +42,9 @@ function UserRoutes() {
 
       {/* Impact */}
         <Route path="/impact" element={<Impact /> } />
+
+      {/* Espace Donateur */}
+        <Route path="/profil" element={<DonationSpace /> } />
 
     
 
