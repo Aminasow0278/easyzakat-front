@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="border-b border-gray-100 bg-white">
+    <header className="sticky top-0 border-b border-gray-100 bg-white w-full z-50 ">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-10 lg:px-14">
 
         {/* Logo */}
