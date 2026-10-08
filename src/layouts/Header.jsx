@@ -7,7 +7,7 @@ function Header() {
 
         {/* Logo */}
         <Link
-          to="/"
+          to="/Home"
           className="flex items-center gap-2"
         >
           <span className="text-lg font-extrabold text-[#0F3D2E]">
@@ -16,10 +16,10 @@ function Header() {
         </Link>
 
         {/* Navigation desktop */}
-        <nav className="hidden items-center gap-12 md:flex">
+        <nav className="hidden items-center gap-16 md:flex pr-20">
 
           <NavLink
-            to="/"
+            to="/Home"
             end
             className={({ isActive }) =>
               `relative text-sm font-medium transition ${
@@ -105,6 +105,7 @@ function Header() {
 
         </nav>
 
+      
       </div>
     </header>
   );
