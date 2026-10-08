@@ -72,7 +72,6 @@ function Payment() {
           pb-12
           pt-8
           mb-20
-          mt-20
           
 
           sm:px-7

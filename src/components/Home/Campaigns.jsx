@@ -5,6 +5,7 @@ const campaigns = [
   {
     id: 1,
     title: "Construction de 3 puits solaires pour 500 familles.",
+    description: "Construction de 3 puits solaires pour 500 familles.",
     progress: 85,
     remaining: "4 jours restants",
     collected: 4250000,
