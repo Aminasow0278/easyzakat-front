@@ -1,11 +1,7 @@
-
 const API_URL = "http://localhost:5000/api";
 
 export const registerUser = async (data) => {
   try {
-    console.log("📤 Données envoyées :", data);
-    console.log("🌐 URL :", `${API_URL}/auth/register`);
-
     const response = await fetch(`${API_URL}/auth/register`, {
       method: "POST",
       headers: {
@@ -14,11 +10,7 @@ export const registerUser = async (data) => {
       body: JSON.stringify(data),
     });
 
-    console.log("📥 Status :", response.status);
-
     const result = await response.json();
-
-    console.log("📥 Réponse :", result);
 
     if (!response.ok) {
       throw new Error(
@@ -28,7 +20,6 @@ export const registerUser = async (data) => {
 
     return result;
   } catch (error) {
-    console.error("❌ Erreur API :", error);
     throw error;
   }
 };
@@ -51,4 +42,48 @@ export const loginUser = async (data) => {
   }
 
   return result;
+};
+
+
+// ==========================================
+// CALCUL ZAKAT
+// ==========================================
+
+export const calculateZakat = async (data) => {
+  try {
+    console.log("📤 Données Zakat envoyées :", data);
+    console.log("🌐 URL :", `${API_URL}/zakat/calculate`);
+
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+      `${API_URL}/zakat/calculate`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token
+            ? {
+                Authorization: `Bearer ${token}`,
+              }
+            : {}),
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        result.message ||
+          "Erreur lors du calcul de la Zakat"
+      );
+    }
+
+    return result;
+  } catch (error) {
+    console.error("❌ Erreur API Zakat :", error);
+    throw error;
+  }
 };

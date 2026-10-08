@@ -65,7 +65,7 @@ function Register() {
 
       // Aller vers la connexion
       setTimeout(() => {
-        navigate("/");
+        navigate("/Home");
       }, 1500);
 
     } catch (err) {

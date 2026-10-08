@@ -7,6 +7,7 @@ import DonationType from "../../pages/public/DonationType";
 import Cause from "../../pages/public/Cause";
 import Landing from "../../pages/public/Landing";
 import CampaignDetails from "../../pages/public/CampaignDetails";
+
 import Register from "../../pages/auth/Register";
 import Login from "../../pages/auth/Login";
 
