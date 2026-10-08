@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const links = [
   {
     label: "Transparency",
-    path: "/transparence",
+    path: "/impact",
   },
   {
     label: "Zakat Guide",

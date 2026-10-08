@@ -7,8 +7,9 @@ import DonationType from "../../pages/public/DonationType";
 import Cause from "../../pages/public/Cause";
 import Landing from "../../pages/public/Landing";
 import CampaignDetails from "../../pages/public/CampaignDetails";
-import Register from "../../pages/auth/Register";
-import Login from "../../pages/auth/Login";
+import Payment from "../../pages/public/Payment";
+import Confirm from "../../pages/public/Confirm";
+
 
 function UserRoutes() {
   return (
@@ -31,6 +32,12 @@ function UserRoutes() {
 
         {/* Page Details */}
         <Route path="/details" element={<CampaignDetails /> } />
+
+        {/* Page Paiement */}
+        <Route path="/payment" element={<Payment /> } />
+
+        {/* Page Confirmation */}
+        <Route path="/confirm" element={<Confirm /> } />
 
       {/* Impact */}
         <Route path="/impact" element={<Impact /> } />

@@ -44,11 +44,11 @@ function AmountForm({
         className="
           mt-2
           flex
-          h-[49px]
+          h-12.25
           w-full
           items-center
           overflow-hidden
-          rounded-[8px]
+          rounded-lg
           border
           border-[#BDC4C2]
           bg-white
