@@ -1,11 +1,78 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/Api";
 
 function Login() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Gérer les champs
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Connexion
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setMessage("");
+    setError("");
+    setLoading(true);
+
+    try {
+      const data = await loginUser(formData);
+
+      console.log("Connexion réussie :", data);
+
+      // Sauvegarder le token
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+
+      // Sauvegarder l'utilisateur
+      if (data.user) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify(data.user)
+        );
+      }
+
+      setMessage("Connexion réussie !");
+
+      // Aller directement vers l'administration
+      setTimeout(() => {
+        navigate("/Home");
+      }, 500);
+
+    } catch (err) {
+      console.error("Erreur connexion :", err);
+
+      setError(
+        err.message || "Email ou mot de passe incorrect."
+      );
+
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f8f9fc] px-4">
 
       <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-sm sm:p-8">
 
+        {/* TITRE */}
         <div className="text-center">
 
           <h1 className="text-2xl font-bold text-[#003f35]">
@@ -18,50 +85,90 @@ function Login() {
 
         </div>
 
-        <form className="mt-8 space-y-5">
+        {/* MESSAGE SUCCÈS */}
+        {message && (
+          <div className="mt-6 rounded-xl bg-green-100 px-4 py-3 text-sm text-green-700">
+            {message}
+          </div>
+        )}
 
+        {/* MESSAGE ERREUR */}
+        {error && (
+          <div className="mt-6 rounded-xl bg-red-100 px-4 py-3 text-sm text-red-700">
+            {error}
+          </div>
+        )}
+
+        {/* FORMULAIRE */}
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8 space-y-5"
+        >
+
+          {/* EMAIL */}
           <div>
+
             <label className="mb-2 block text-sm font-semibold">
               Email
             </label>
 
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="votre@email.com"
+              required
               className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-[#005b49]"
             />
+
           </div>
 
+          {/* MOT DE PASSE */}
           <div>
+
             <label className="mb-2 block text-sm font-semibold">
               Mot de passe
             </label>
 
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="••••••••"
+              required
               className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-[#005b49]"
             />
+
           </div>
 
+          {/* MOT DE PASSE OUBLIÉ */}
           <div className="text-right">
+
             <Link
-              to="/mot-de-passe-oublie"
+              to="/mdp"
               className="text-sm text-[#005b49] underline"
             >
               Mot de passe oublié ?
             </Link>
+
           </div>
 
+          {/* BOUTON */}
           <button
             type="submit"
-            className="w-full rounded-xl bg-[#005b49] py-3 font-bold text-white"
+            disabled={loading}
+            className="w-full rounded-xl bg-[#005b49] py-3 font-bold text-white transition hover:bg-[#00483b] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Se connecter
+            {loading
+              ? "Connexion..."
+              : "Se connecter"}
           </button>
 
         </form>
 
+        {/* INSCRIPTION */}
         <p className="mt-6 text-center text-sm text-gray-500">
 
           Vous n'avez pas de compte ?{" "}

@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, HandHeart } from "lucide-react";
+import campaigns from "../../components/Home/Campaigns";
+import Campaigns from "../../components/Landing/Campaigns";
 
-import campaigns from "../data/campaigns";
-
-function campaignDetails() {
+function CampaignDetails() {
 
   const { id } = useParams();
 
-  const campaign = projects.find(
+  const campaign = Campaigns.find(
     (item) => item.id === Number(id)
   );
 
@@ -20,10 +20,10 @@ function campaignDetails() {
           </h1>
 
           <Link
-            to="/projets"
+            to="/cause"
             className="mt-4 inline-block text-[#005b49] underline"
           >
-            Retour aux projets
+            Retour aux campagnes
           </Link>
         </div>
       </div>
@@ -37,7 +37,7 @@ function campaignDetails() {
         <div className="mx-auto flex max-w-5xl items-center gap-4 px-4 py-4">
 
           <Link
-            to="/projets"
+            to="/cause"
             className="rounded-full p-2 hover:bg-gray-100"
           >
             <ArrowLeft size={20} />
@@ -104,7 +104,7 @@ function campaignDetails() {
             </div>
 
             <Link
-              to="/don"
+              to="/type"
               className="mt-8 flex items-center justify-center gap-2 rounded-xl bg-[#005b49] px-5 py-4 font-bold text-white hover:bg-[#004b3c]"
             >
               <HandHeart size={20} />

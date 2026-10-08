@@ -29,7 +29,7 @@ function ActionCards() {
 
       {/* Don */}
       <Link
-        to="/don"
+        to="/cause"
         className="group flex min-h-[110px] flex-col items-center justify-center rounded-2xl bg-[#003f35] shadow-lg transition hover:-translate-y-1 hover:bg-[#005b49] sm:min-h-[135px]"
       >
 

@@ -24,7 +24,7 @@ function StatCard({ title, amount, children, highlight }) {
 
 export default function ImpactStats() {
   return (
-    <section className="grid gap-4 md:grid-cols-3  bg-white">
+    <section className="grid gap-4 md:grid-cols-3">
 
       <StatCard
         title="TOTAL COLLECTÉ (2026)"

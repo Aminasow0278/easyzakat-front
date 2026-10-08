@@ -6,7 +6,7 @@ function App() {
 
     <>
     
-    <UserRoutes />
+      <UserRoutes />
 
       <AdminRoutes />
 
