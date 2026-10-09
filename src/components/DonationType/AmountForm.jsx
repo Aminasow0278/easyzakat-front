@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 function AmountForm({
   amount,
@@ -129,8 +128,8 @@ function AmountForm({
 
       {/* Bouton */}
 
-      <Link
-      to="/payment"
+      <button
+        type="button"
         onClick={onContinue}
         className="
           mt-6
@@ -158,7 +157,7 @@ function AmountForm({
           size={23}
           strokeWidth={2}
         />
-      </Link>
+      </button>
     </section>
   );
 }

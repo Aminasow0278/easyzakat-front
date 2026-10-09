@@ -1,43 +1,22 @@
-import { useState } from "react";
 import { WalletCards } from "lucide-react";
 
-import { PAYMENT_METHODS } from "../../components/Payment/paymentMethod";
+import { PAYMENT_METHODS } from "./paymentMethod";
 import PaymentMethodCard from "./PaymentMethodCard";
 
 function PaymentMethods({
   methods = PAYMENT_METHODS,
-  selectedMethod,
+  selectedMethod = "wave",
   onMethodChange,
 }) {
-  const [internalMethod, setInternalMethod] = useState(
-    selectedMethod || "wave"
-  );
-
   function handleMethodSelect(methodId) {
-    setInternalMethod(methodId);
-
     if (onMethodChange) {
       onMethodChange(methodId);
     }
   }
 
-  function renderPaymentMethod(method) {
-    return (
-      <PaymentMethodCard
-        key={method.id}
-        id={method.id}
-        name={method.name}
-        selected={internalMethod === method.id}
-        onSelect={function () {
-          handleMethodSelect(method.id);
-        }}
-      />
-    );
-  }
-
-  const availableMethods = methods.filter(function (method) {
-    return method.enabled;
-  });
+  const availableMethods = methods.filter(
+    (method) => method.enabled
+  );
 
   return (
     <section
@@ -47,13 +26,11 @@ function PaymentMethods({
         bg-white
         p-5
         shadow-[0_2px_8px_rgba(0,0,0,0.02)]
-
         sm:p-6
-
         lg:p-7
       "
     >
-      {/* Title */}
+      {/* Titre */}
 
       <div className="flex items-center gap-2">
         <WalletCards
@@ -67,7 +44,6 @@ function PaymentMethods({
             text-[19px]
             font-semibold
             text-[#174E45]
-
             sm:text-[21px]
           "
         >
@@ -75,7 +51,7 @@ function PaymentMethods({
         </h2>
       </div>
 
-      {/* Methods */}
+      {/* Méthodes de paiement */}
 
       <div
         className="
@@ -83,13 +59,19 @@ function PaymentMethods({
           grid
           grid-cols-2
           gap-3
-
           sm:gap-4
-
           lg:grid-cols-3
         "
       >
-        {availableMethods.map(renderPaymentMethod)}
+        {availableMethods.map((method) => (
+          <PaymentMethodCard
+            key={method.id}
+            id={method.id}
+            name={method.name}
+            selected={selectedMethod === method.id}
+            onSelect={() => handleMethodSelect(method.id)}
+          />
+        ))}
       </div>
     </section>
   );

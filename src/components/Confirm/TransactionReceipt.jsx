@@ -17,8 +17,10 @@ function TransactionReceipt({
   blockchain,
 }) {
   return (
-    <section className="mx-5 mt-12 overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm sm:mx-8 sm:mt-14 lg:mx-0">
-
+ <section
+  id="transaction-receipt"
+  className="mx-5 mt-12 overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm sm:mx-8 sm:mt-14 lg:mx-0"
+>
       {/* Header du reçu */}
       <div className="bg-emerald-950 px-5 py-4 text-white sm:px-6 sm:py-5">
         <div className="flex flex-col gap-3 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between">
@@ -55,7 +57,7 @@ function TransactionReceipt({
 
         <div>
           <p className="text-sm text-gray-600">
-            Type de Zakat
+            Type de Don
           </p>
 
           <p className="mt-1 text-[17px] font-bold text-gray-900">

@@ -1,5 +1,6 @@
-import { useState } from "react";
- import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Header from "../../layouts/Header";
 import ZakatAssets from "../../components/zakat/ZakatAssets";
 import ZakatDebts from "../../components/zakat/ZakatDebts";
@@ -7,8 +8,13 @@ import ZakatNote from "../../components/zakat/ZakatNote";
 import Recapitulatif from "../../components/zakat/Recapitulatif";
 import Footer from "../../layouts/Footer";
 import BottomNav from "../../layouts/BottomNav";
+import {
+  calculateZakat as calculateZakatAPI
+} from "../../services/Api";
 
 function CalculZakat() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     cash: "",
     bank: "",
@@ -27,6 +33,23 @@ function CalculZakat() {
   const [assiette, setAssiette] = useState(0);
   const [zakat, setZakat] = useState(0);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  // ==========================================
+  // VÉRIFIER LA CONNEXION
+  // ==========================================
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  // ==========================================
+  // MODIFIER LES CHAMPS
+  // ==========================================
   const handleChange = (name, value) => {
     setForm((prev) => ({
       ...prev,
@@ -34,38 +57,68 @@ function CalculZakat() {
     }));
   };
 
-  const calculateZakat = () => {
-    const assets =
-      Number(form.cash || 0) +
-      Number(form.bank || 0) +
-      Number(form.savings || 0) +
-      Number(form.gold || 0) +
-      Number(form.silver || 0) +
-      Number(form.merchandise || 0) +
-      Number(form.receivables || 0) +
-      Number(form.otherAssets || 0);
+  // ==========================================
+  // CALCULER LA ZAKAT AVEC LE BACKEND
+  // ==========================================
+  const calculateZakat = async () => {
+    try {
+      setLoading(true);
+      setError("");
 
-    const debtsAmount =
-      Number(form.debts || 0) +
-      Number(form.immediateObligations || 0);
+      const data = await calculateZakatAPI({
+        cash: Number(form.cash || 0),
+        bankBalance: Number(form.bank || 0),
+        savings: Number(form.savings || 0),
+        gold: Number(form.gold || 0),
+        silver: Number(form.silver || 0),
+        tradeGoods: Number(form.merchandise || 0),
+        receivables: Number(form.receivables || 0),
+        otherAssets: Number(form.otherAssets || 0),
+        shortTermDebt: Number(form.debts || 0),
+        immediateObligations: Number(
+          form.immediateObligations || 0
+        ),
+        nisab: 500000,
+      });
 
-    const zakatableAmount = Math.max(0, assets - debtsAmount);
+      console.log("Résultat Zakat :", data);
 
-    const nisab = 500000;
+      // Résultat provenant du backend
+      const result = data.result;
 
-    setTotalActifs(assets);
-    setDettes(debtsAmount);
-    setAssiette(zakatableAmount);
+      setTotalActifs(result.totalAssets || 0);
+      setDettes(result.totalDebts || 0);
+      setAssiette(result.zakatableAmount || 0);
+      setZakat(result.zakatAmount || 0);
 
-    if (zakatableAmount >= nisab) {
-      setZakat(zakatableAmount * 0.025);
-    } else {
-      setZakat(0);
+    } catch (err) {
+      console.error("Erreur calcul Zakat :", err);
+
+      setError(
+        err.message || "Erreur lors du calcul de la Zakat"
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
+  // ==========================================
+  // ALLER VERS LES CAUSES
+  // ==========================================
   const handleDonate = () => {
-    console.log("Don de :", zakat);
+    if (!zakat || zakat <= 0) {
+      setError(
+        "Votre montant de Zakat est inférieur au Nisab."
+      );
+      return;
+    }
+
+    navigate("/cause", {
+      state: {
+        donationType: "zakat",
+        amount: zakat,
+      },
+    });
   };
 
   return (
@@ -73,6 +126,8 @@ function CalculZakat() {
       <Header />
 
       <main className="mx-auto max-w-7xl px-4 pb-28 pt-7 sm:px-6 sm:pt-9 lg:px-10 lg:pb-0 lg:pt-12">
+
+        {/* TITRE */}
         <section className="mb-7 sm:mb-9">
           <h1 className="text-[28px] font-bold leading-tight tracking-[-0.7px] sm:text-4xl lg:text-[42px]">
             Calculez votre Zakat
@@ -84,25 +139,40 @@ function CalculZakat() {
           </p>
         </section>
 
+        {/* ERREUR */}
+        {error && (
+          <div className="mb-5 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">
+            {error}
+          </div>
+        )}
+
         <div className="grid gap-5 lg:grid-cols-12 lg:items-start lg:gap-7">
+
+          {/* GAUCHE */}
           <div className="lg:col-span-8">
+
             <ZakatAssets
               form={form}
               handleChange={handleChange}
             />
 
             <div className="mt-5 space-y-5">
+
               <ZakatDebts
                 form={form}
                 handleChange={handleChange}
                 onCalculate={calculateZakat}
+                loading={loading}
               />
 
               <ZakatNote />
+
             </div>
           </div>
 
+          {/* DROITE */}
           <div className="lg:col-span-4">
+
             <Recapitulatif
               totalActifs={totalActifs}
               dettes={dettes}
@@ -110,13 +180,16 @@ function CalculZakat() {
               zakat={zakat}
               onDonate={handleDonate}
             />
+
           </div>
         </div>
       </main>
 
-      {/* Barre mobile */}
+      {/* BARRE MOBILE */}
       <div className="fixed bottom-[61px] left-0 right-0 z-40 bg-[#086c51] shadow-[0_-3px_12px_rgba(0,0,0,0.12)] lg:hidden">
+
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-[9px] sm:px-6 sm:py-3">
+
           <div>
             <p className="text-[9px] leading-3 text-white/60 sm:text-[11px]">
               Ma Zakat
@@ -130,25 +203,26 @@ function CalculZakat() {
             </p>
           </div>
 
-
-          <Link
-            to="/type"
-            className="rounded-[5px] bg-[#e8c944] px-6 py-3 text-[11px] font-semibold text-[#4c461d] shadow-sm transition hover:bg-[#dabb31] sm:px-8 sm:py-3.5"
+          <button
+            type="button"
+            onClick={handleDonate}
+            disabled={!zakat || zakat <= 0}
+            className="rounded-[5px] bg-[#e8c944] px-6 py-3 text-[11px] font-semibold text-[#4c461d] shadow-sm transition hover:bg-[#dabb31] disabled:cursor-not-allowed disabled:opacity-50 sm:px-8 sm:py-3.5"
           >
             Donner
-          </Link>
+          </button>
 
         </div>
       </div>
 
-      {/* Navigation mobile */}
+      {/* NAVIGATION MOBILE */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#e1e1e1] bg-white lg:hidden">
         <div className="mx-auto grid h-[61px] max-w-lg grid-cols-5">
           <BottomNav />
           <Footer />
         </div>
       </nav>
-      
+
       <Footer />
     </div>
   );

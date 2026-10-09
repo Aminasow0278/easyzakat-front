@@ -1,15 +1,10 @@
-import { useState } from "react";
-
 import TypeCard from "./TypeCard";
 import Types from "./Types";
 
-function TypeList() {
-  const [selectedType, setSelectedType] = useState(null);
-
-  function handleTypeSelect(typeId) {
-    setSelectedType(typeId);
-  }
-
+function TypeList({
+  selectedType,
+  onTypeSelect,
+}) {
   return (
     <section
       className="
@@ -22,8 +17,8 @@ function TypeList() {
 
         sm:px-6
 
-        sm:grid grid-cols-2
-
+        sm:grid
+        sm:grid-cols-2
       "
     >
       {Types.map((Type) => (
@@ -35,7 +30,7 @@ function TypeList() {
           icon={Type.icon}
           variant={Type.variant}
           selected={selectedType === Type.id}
-          onSelect={() => handleTypeSelect(Type.id)}
+          onSelect={() => onTypeSelect(Type.id)}
         />
       ))}
     </section>
