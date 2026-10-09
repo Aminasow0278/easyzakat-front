@@ -57,7 +57,7 @@ function TransactionReceipt({
 
         <div>
           <p className="text-sm text-gray-600">
-            Type de Zakat
+            Type de Don
           </p>
 
           <p className="mt-1 text-[17px] font-bold text-gray-900">
