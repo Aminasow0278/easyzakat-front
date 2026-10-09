@@ -76,7 +76,7 @@ export const DEFAULT_DASHBOARD_DATA = {
   impactReport: {
     title: "Votre impact est concret.",
     description:
-      "En 2024, vos dons ont contribué à la construction de 2 nouveaux puits et au financement de l'éducation de 45 orphelins dans la région de Thiès.",
+      "En 2026, vos dons ont contribué à la construction de 2 nouveaux puits et au financement de l'éducation de 45 orphelins dans la région de Thiès.",
     buttonLabel: "Voir le rapport d'impact",
     image: eau,
   },
