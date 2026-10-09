@@ -37,7 +37,7 @@ const Types = [
   },
 
   {
-    id: "urgence",
+    id: "urgence_sociale",
     title: "Urgence sociale",
     badge: "Priority",
     description:
@@ -47,4 +47,4 @@ const Types = [
   },
 ];
 
-export default Types ;
+export default Types;

@@ -5,11 +5,12 @@ import Campaigns from "../../components/Landing/Campaigns";
 
 function CampaignDetails() {
 
-  const { id } = useParams();
+ const location = useLocation();
 
-  const campaign = Campaigns.find(
-    (item) => item.id === Number(id)
-  );
+const {
+  donationAmount,
+  donationType,
+} = location.state || {};
 
   if (!campaign) {
     return (
@@ -19,12 +20,39 @@ function CampaignDetails() {
             Campagne introuvable
           </h1>
 
-          <Link
-            to="/cause"
-            className="mt-4 inline-block text-[#005b49] underline"
-          >
-            Retour aux campagnes
-          </Link>
+         <Link
+  to="/type"
+  onClick={() => {
+    const selectedCause = {
+      id: campaign.id,
+      name: campaign.title || campaign.name,
+      organization:
+        typeof campaign.organization === "string"
+          ? campaign.organization
+          : campaign.organization?.name || "",
+      image: campaign.image || "",
+    };
+
+    localStorage.setItem(
+      "easyzakat_selected_campaign",
+      JSON.stringify(selectedCause)
+    );
+  }}
+  state={{
+    campaignId: campaign.id,
+    campaignName: campaign.title || campaign.name,
+    campaignOrganization:
+      typeof campaign.organization === "string"
+        ? campaign.organization
+        : campaign.organization?.name || "",
+    donationAmount: donationAmount || 0,
+    donationType: donationType || "zakat",
+  }}
+  className="mt-8 flex items-center justify-center gap-2 rounded-xl bg-[#005b49] px-5 py-4 font-bold text-white hover:bg-[#004b3c]"
+>
+  <HandHeart size={20} />
+  Soutenir cette campagne
+</Link>
         </div>
       </div>
     );

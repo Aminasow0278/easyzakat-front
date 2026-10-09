@@ -6,6 +6,10 @@ import {
   Landmark,
 } from "lucide-react";
 
+// ==========================================
+// CONFIGURATION DES MOYENS DE PAIEMENT
+// ==========================================
+
 export const PAYMENT_METHOD_CONFIG = {
   wave: {
     icon: Waves,
@@ -14,10 +18,17 @@ export const PAYMENT_METHOD_CONFIG = {
     iconBackground: "bg-[#E8F0FF]",
   },
 
-  "orange-money": {
+  orange_money: {
     icon: Smartphone,
     subtitle: "RAPIDE & SÛR",
     iconColor: "text-[#FF7900]",
+    iconBackground: "bg-[#E8F0FF]",
+  },
+
+  free_money: {
+    icon: Wallet,
+    subtitle: "MOBILE WALLET",
+    iconColor: "text-[#8A7200]",
     iconBackground: "bg-[#E8F0FF]",
   },
 
@@ -28,20 +39,17 @@ export const PAYMENT_METHOD_CONFIG = {
     iconBackground: "bg-[#E8F0FF]",
   },
 
-  "free-money": {
-    icon: Wallet,
-    subtitle: "MOBILE WALLET",
-    iconColor: "text-[#8A7200]",
-    iconBackground: "bg-[#E8F0FF]",
-  },
-
-  bank: {
+  bank_transfer: {
     icon: Landmark,
     subtitle: "COMPTE BANCAIRE",
     iconColor: "text-[#60666A]",
     iconBackground: "bg-[#E8F0FF]",
   },
 };
+
+// ==========================================
+// LISTE DES MOYENS DE PAIEMENT
+// ==========================================
 
 export const PAYMENT_METHODS = [
   {
@@ -51,27 +59,26 @@ export const PAYMENT_METHODS = [
   },
 
   {
-    id: "orange-money",
+    id: "orange_money",
     name: "Orange Money",
     enabled: true,
   },
 
   {
-    id: "card",
-    name: "Carte Bancaire",
-    enabled: true,
-  },
-
-  {
-    id: "free-money",
+    id: "free_money",
     name: "Free Money",
     enabled: true,
   },
 
   {
-    id: "bank",
-    name: "Virement",
+    id: "card",
+    name: "Carte bancaire",
+    enabled: true,
+  },
+
+  {
+    id: "bank_transfer",
+    name: "Virement bancaire",
     enabled: true,
   },
 ];
-
