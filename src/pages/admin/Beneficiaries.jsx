@@ -269,8 +269,6 @@ function Beneficiaries() {
 
       </main>
 
-      < MobileBottomNav />
-
     </div>
   );
 }
