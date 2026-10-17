@@ -38,8 +38,8 @@ function Sidebar({
     // Un élément sans permission explicite reste public
     // dans la navigation. Les éléments protégés doivent
     // déclarer leur permission dans la configuration.
-    if (!permission) {
-      return false;
+    if (permission) {
+      return true;
     }
 
     return permissions.includes(permission);

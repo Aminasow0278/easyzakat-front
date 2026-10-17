@@ -86,8 +86,6 @@ function Beneficiaries() {
   return (
     <div className="min-h-screen bg-[#F5F6F8] pb-24 text-slate-700 md:pb-8">
 
-      <BeneficiaryHeader />
-
       <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
 
         {/* TITRE */}

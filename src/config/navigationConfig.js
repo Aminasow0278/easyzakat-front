@@ -8,7 +8,7 @@ export const AdminMenuItems = [
   },
   {
     name: "Donateurs",
-    path: "/admin/donateurs",
+    path: "/admin/donors",
     icon: "Users",
     permission: "donors:read",
   },
@@ -32,7 +32,7 @@ export const AdminMenuItems = [
   },
   {
     name: "Bénéficiaires",
-    path: "/admin/beneficiaires",
+    path: "/admin/beneficiaries",
     icon: "HandHeart",
     permission: "beneficiaries:read",
   },
