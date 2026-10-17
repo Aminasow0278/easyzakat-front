@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 
 import AdminLayout from "../../layouts/AdminLayout";
-import { adminMenuItems } from "../../config/navigationConfig";
+import { AdminMenuItems } from "../../config/navigationConfig";
 
 import AdminDashboard from "../../pages/admin/AdminDashboard";
-import Donors from "../../pages/admin/Donors";
-import Payments from "../../pages/admin/Payments";
-import Campaigns from "../../pages/admin/Campaigns";
-import Organisations from "../../pages/admin/Organisations";
-import Beneficiaries from "../../pages/admin/Beneficiaries";
-import Reports from "../../pages/admin/Reports";
-import Audit from "../../pages/admin/Audit";
+// import Donors from "../../pages/admin/Donors";
+// import Payments from "../../pages/admin/Payments";
+// import Campaigns from "../../pages/admin/Campaigns";
+// import Organisations from "../../pages/admin/Organisations";
+// import Beneficiaries from "../../pages/admin/Beneficiaries";
+// import Reports from "../../pages/admin/Reports";
+// import Audit from "../../pages/admin/Audit";
 
 function AdminRoutes({
   user,
@@ -21,20 +21,14 @@ function AdminRoutes({
     <Routes>
       <Route
         path="/admin"
-        element={
-          <AdminLayout
-            menuItems={adminMenuItems}
-            user={user}
-            permissions={permissions}
-            onLogout={onLogout}
-          />
+        element={<AdminLayout/>
         }
       >
+        
         <Route
-          path="dashboard"
-          element={<AdminDashboard />}
+          index element={<AdminDashboard />}
         />
-
+{/* 
         <Route
           path="donors"
           element={<Donors />}
@@ -68,7 +62,7 @@ function AdminRoutes({
         <Route
           path="audit"
           element={<Audit />}
-        />
+        /> */}
         
       </Route>
     </Routes>

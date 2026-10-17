@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 
-import { PAYMENT_METHOD_CONFIG } from "../../components/Payment/paymentMethod";
+import { PAYMENT_METHOD_CONFIG } from "../../Client/Payment/paymentMethod";
 
 function PaymentMethodCard({
   id,

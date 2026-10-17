@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 
-import { QUICK_ACTIONS } from "../../components/DonationSpace/SpaceData";
+import { QUICK_ACTIONS } from "../../Client/DonationSpace/SpaceData";
 
 function QuickActions({
   actions = QUICK_ACTIONS,

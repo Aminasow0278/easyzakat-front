@@ -4,11 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../layouts/Header";
 import BottomNav from "../../layouts/BottomNav";
 import Footer from "../../layouts/Footer";
-import PaymentIntro from "../../components/Payment/PaymentIntro";
-import PaymentMethods from "../../components/Payment/PaymentMethods";
-import DonorInformation from "../../components/Payment/DonorInformation";
-import DonationSummary from "../../components/Payment/DonationSummary";
-import ShariaCertification from "../../components/Payment/ShariaCertification";
+import PaymentIntro from "../../components/client/Payment/PaymentIntro";
+import PaymentMethods from "../../components/client/Payment/PaymentMethods";
+import DonorInformation from "../../components/client/Payment/DonorInformation";
+import DonationSummary from "../../components/client/Payment/DonationSummary";
+import ShariaCertification from "../../components/client/Payment/ShariaCertification";
 
 import {
   createDonation,

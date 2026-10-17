@@ -1,16 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 // import html2canvas from "html2canvas-pro";
 // import { jsPDF } from "jspdf";
-import DonationSuccess from "../../components/Confirm/DonationSuccess";
-import TransactionReceipt from "../../components/Confirm/TransactionReceipt";
-import DonationActions from "../../components/Confirm/DonationActions";
+import DonationSuccess from "../../components/client/Confirm/DonationSuccess";
+import TransactionReceipt from "../../components/client/Confirm/TransactionReceipt";
+import DonationActions from "../../components/client/Confirm/DonationActions";
 import Header from "../../layouts/Header";
 import BottomNav from "../../layouts/BottomNav";
 import Footer from "../../layouts/Footer";
 
 import {
   DONATION_ACTIONS,
-} from "../../components/Confirm/DonationConfirmationData";
+} from "../../components/Client/Confirm/DonationConfirmationData";
 
 function formatPaymentMethod(method) {
   const methods = {

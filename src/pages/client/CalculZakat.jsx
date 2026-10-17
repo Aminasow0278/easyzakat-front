@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Header from "../../layouts/Header";
-import ZakatAssets from "../../components/zakat/ZakatAssets";
-import ZakatDebts from "../../components/zakat/ZakatDebts";
-import ZakatNote from "../../components/zakat/ZakatNote";
-import Recapitulatif from "../../components/zakat/Recapitulatif";
+import ZakatAssets from "../../components/Client/Zakat/ZakatAssets";
+import ZakatDebts from "../../components/Client/Zakat/ZakatDebts";
+import ZakatNote from "../../components/Client/Zakat/ZakatNote";
+import Recapitulatif from "../../components/Client/Zakat/Recapitulatif";
 import Footer from "../../layouts/Footer";
 import BottomNav from "../../layouts/BottomNav";
 import {

@@ -3,8 +3,8 @@ import {
   HandCoins,
   Download,
 } from "lucide-react";
-import commerce from "../../assets/commerce.png"
-import eau from "../../assets/eau.png"
+import commerce from "../../../assets/commerce.png"
+import eau from "../../../assets/eau.png"
 
 export const QUICK_ACTIONS = [
   {

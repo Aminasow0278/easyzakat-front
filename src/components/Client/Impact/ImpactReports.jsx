@@ -1,8 +1,8 @@
 import { Download, Eye, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import ramadanImage from "../../assets/ramadan.png";
-import bilanImage from "../../assets/bilan.png";
-import educationImage from "../../assets/education.png";
+import ramadanImage from "../../../assets/ramadan.png";
+import bilanImage from "../../../assets/bilan.png";
+import educationImage from "../../../assets/education.png";
 const reports = [
   {
     title: "Campagne Ramadan 2026",

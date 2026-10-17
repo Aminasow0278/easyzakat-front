@@ -1,7 +1,7 @@
 import CauseCard from "./CauseCard";
-import orphelin from "../../assets/orphelin.png";
-import podor from "../../assets/podor.png";
-import commerce from "../../assets/commerce.png";
+import orphelin from "../../../assets/orphelin.png";
+import podor from "../../../assets/podor.png";
+import commerce from "../../../assets/commerce.png";
 
 const causes = [
   {

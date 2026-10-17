@@ -1,10 +1,10 @@
 import Header from "../../layouts/Header";
 import BottomNav from "../../layouts/BottomNav";
 import Footer from "../../layouts/Footer"
-import Hero from "../../components/Home/Hero";
-import ActionCards from "../../components/Home/ActionCards";
-import EmergencySection from "../../components/Home/EmergencySection";
-import ImpactReport from "../../components/Home/ImpactReport";
+import Hero from "../../components/client/Home/Hero";
+import ActionCards from "../../components/client/Home/ActionCards";
+import EmergencySection from "../../components/client/Home/EmergencySection";
+import ImpactReport from "../../components/client/Home/ImpactReport";
 
 
 function Home() {

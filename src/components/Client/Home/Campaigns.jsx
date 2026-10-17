@@ -1,5 +1,5 @@
-import eau from "../../assets/eau.png";
-import sante from "../../assets/sante.png";
+import eau from "../../../assets/eau.png";
+import sante from "../../../assets/sante.png";
 
 const campaigns = [
   {
