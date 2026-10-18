@@ -23,7 +23,7 @@ function Donateurs({ donors = DONORS_DATA }) {
   );
 
   return (
-    <main className="min-h-screen bg-[#F7F4ED] px-4 py-5 sm:px-6 md:px-7 md:py-7">
+    <main className="min-h-screen rounded-2xl px-4 py-5 sm:px-6 md:px-7 md:py-7 lg:px-20">
       <div className="mx-auto w-full max-w-7xl">
         <DonorPageHeader
           title={PAGE_TITLE}

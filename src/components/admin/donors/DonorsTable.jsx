@@ -5,10 +5,10 @@ function DonorTable({ donors }) {
   return (
     <div className="hidden overflow-hidden rounded-2xl border border-[#E2DCCF] md:block">
       <table className="w-full border-collapse text-sm">
-        <thead className="bg-[#F7F4ED] text-[#006B5D]">
+        <thead className="bg-[#075b45] text-white">
           <tr>
             <th scope="col" className="px-3 py-3 text-left font-medium">
-              Donateur
+              Donateurs
             </th>
 
             <th scope="col" className="px-3 py-3 text-left font-medium">
@@ -25,7 +25,7 @@ function DonorTable({ donors }) {
           {donors.map((donor) => (
             <tr
               key={donor.id}
-              className="border-t border-[#E2DCCF] transition-colors hover:bg-[#FAF8F3]"
+              className="border-t border-[#E2DCCF] transition-colors hover:bg-[#075b451a]"
             >
               <td className="px-3 py-[9px] font-medium text-slate-900">
                 {donor.name}

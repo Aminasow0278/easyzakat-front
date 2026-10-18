@@ -84,8 +84,8 @@ function Sidebar({
           bg-[#f0f1ff] px-3 py-4
           transition-transform duration-200 ease-in-out
           lg:translate-x-0
-          lg:w-[140px]
-          xl:w-[145px]
+          md:w-[200px]
+          xl:w-[190px]
           ${
             isOpen
               ? "translate-x-0"
@@ -98,16 +98,6 @@ function Sidebar({
           <h1 className="text-[16px] font-bold text-[#075b45]">
             EasyZakat
           </h1>
-
-          {/* Bouton de fermeture visible sur mobile/tablette */}
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Fermer la navigation"
-            className="rounded p-1 text-[#344842] hover:bg-white lg:hidden"
-          >
-            <X size={16} />
-          </button>
         </div>
 
         {/* Profil utilisateur */}
@@ -150,8 +140,8 @@ function Sidebar({
                 to={item.path}
                 onClick={onClose}
                 aria-current={active ? "page" : undefined}
-                className={`flex w-full items-center gap-2 rounded-md px-2 py-2 text-left text-[9px] ${
-                  active
+                className={`flex w-full items-center gap-2 rounded-md px-2 py-2 text-[12px] md:text-[20px] gap-4 lg:text-[18px] ${
+                active
                     ? "bg-[#075b45] text-white"
                     : "text-[#344842] hover:bg-white"
                 }`}
