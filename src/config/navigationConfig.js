@@ -20,7 +20,7 @@ export const AdminMenuItems = [
   },
   {
     name: "Campagnes",
-    path: "/admin/campagnes",
+    path: "/admin/campaigns",
     icon: "Megaphone",
     permission: "campaigns:read",
   },

@@ -6,17 +6,14 @@ import { AdminMenuItems } from "../../config/navigationConfig";
 import AdminDashboard from "../../pages/admin/AdminDashboard";
 import Donors from "../../pages/admin/Donors";
 // import Payments from "../../pages/admin/Payments";
-// import Campaigns from "../../pages/admin/Campaigns";
+import Campaigns from "../../pages/admin/Campaigns";
 // import Organisations from "../../pages/admin/Organisations";
 import Beneficiaries from "../../pages/admin/Beneficiaries";
 // import Reports from "../../pages/admin/Reports";
 // import Audit from "../../pages/admin/Audit";
 
-function AdminRoutes({
-  user,
-  permissions,
-  onLogout,
-}) {
+function AdminRoutes() {
+  
   return (
     <Routes>
       <Route
@@ -39,10 +36,10 @@ function AdminRoutes({
           element={<Payments />}
         /> */}
 
-        {/* <Route
+        <Route
           path="campaigns"
           element={<Campaigns />}
-        /> */}
+        />
 
         {/* <Route
           path="organisations"
